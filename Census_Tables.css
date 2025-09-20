@@ -1,0 +1,128 @@
+:root{
+  --orange:#ff7a00;
+  --orange-600:#ff6a00;
+  --orange-700:#e65f00;
+  --bg:#fff7f0;              /* light orange background */
+  --card:#fff0e0;            /* card with soft orange tone */
+  --muted:#995c33;           /* muted orange/brownish */
+  --text:#1a0d00;            /* dark text for readability */
+  --border:#ffbb80;          /* border in orange shade */
+  --pill:#ffe6cc;            /* pill light orange */
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.45 system-ui,Segoe UI,Roboto,Arial;
+}
+a{color:inherit;text-decoration:none}
+input,button{font:inherit}
+
+/* Topbar */
+.topbar{
+  position:sticky;top:0;z-index:10;
+  display:flex;gap:1rem;align-items:center;justify-content:space-between;
+  padding:14px 20px;
+  border-bottom:1px solid var(--border);
+  background:rgba(255,122,0,.85);
+  backdrop-filter: blur(6px);
+}
+.brand{font-weight:800;letter-spacing:.08em;font-size:1.25rem;color:#fff}
+.search{display:flex;gap:.5rem;width:min(520px,100%)}
+.search input{
+  flex:1;padding:.7rem .9rem;
+  border:1px solid var(--border);
+  background:#fffdfb;
+  border-radius:12px;
+  color:var(--text);
+}
+.search button{
+  background:var(--orange);
+  color:#fff;border:none;
+  padding:.7rem 1rem;
+  border-radius:12px;
+  font-weight:700;cursor:pointer;
+}
+.search button:hover{background:var(--orange-600)}
+
+/* Layout */
+.container{display:grid;grid-template-columns:270px 1fr;gap:20px;max-width:1200px;margin:22px auto;padding:0 16px}
+.sidebar{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px
+}
+.sidebar h3{margin:.25rem 0 .5rem;color:var(--text);font-size:1rem}
+.check{display:flex;gap:.5rem;align-items:center;margin:.35rem 0;color:var(--text)}
+.check input{accent-color:var(--orange)}
+/* .muted{opacity:.65;color:var(--muted)} */
+.filters .scroll{
+  max-height:300px;overflow:auto;
+  border:1px dashed var(--border);
+  border-radius:12px;padding:8px
+}
+.apply{
+  margin-top:10px;width:100%;padding:.6rem;
+  border:none;border-radius:12px;
+  background:linear-gradient(180deg,var(--orange),var(--orange-700));
+  color:#fff;font-weight:800;cursor:pointer
+}
+.clear{display:inline-block;margin-top:8px;font-size:.9rem;color:var(--muted)}
+
+/* Cards */
+.content .list-header{margin-bottom:12px;color:var(--muted)}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{
+  display:grid;grid-template-columns:46px 1fr auto;gap:14px;align-items:center;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;padding:14px 16px;
+  transition:transform .12s ease, border-color .12s ease;
+}
+.card:hover{transform:translateY(-1px);border-color:var(--orange)}
+.icon svg{width:46px;height:46px;stroke:var(--orange);fill:#fff7f0;stroke-width:1.6}
+.meta .code{font-size:.8rem;color:var(--muted)}
+.meta .title{display:block;margin:4px 0 2px;font-weight:700;color:var(--text)}
+.meta .title:hover{color:var(--orange)}
+.meta .series{font-size:.85rem;color:var(--muted)}
+.pill{
+  border:1px solid var(--orange);
+  padding:.35rem .6rem;border-radius:999px;
+  font-size:.8rem;
+  background:var(--pill);
+  color:var(--orange);font-weight:700
+}
+
+/* Empty */
+.empty{
+  text-align:center;color:var(--muted);
+  padding:24px;border:1px dashed var(--border);
+  border-radius:16px;background:#fff2e6
+}
+
+/* Pager */
+.pager{display:flex;gap:.5rem;align-items:center;justify-content:flex-end;margin-top:16px}
+.btn{
+  display:inline-block;padding:.45rem .7rem;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff5eb;color:var(--text)
+}
+.btn:hover{border-color:var(--orange)}
+.btn.disabled{opacity:.45;pointer-events:none}
+.page-indicator{color:var(--muted);margin:0 .4rem}
+
+/* Footer */
+.footer{
+  max-width:1200px;margin:26px auto;padding:10px 16px;
+  color:var(--muted);
+  border-top:1px solid var(--border)
+}
+
+@media (max-width: 880px){
+  .container{grid-template-columns:1fr}
+  .sidebar{order:2}
+}
